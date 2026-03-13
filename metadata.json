@@ -1,0 +1,8 @@
+{
+  "name": "ExamEdge Pro",
+  "description": "The ultimate exam preparation platform connecting students with premium study materials, expert notes, and solved papers. Featuring an admin-controlled environment for quality assurance.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

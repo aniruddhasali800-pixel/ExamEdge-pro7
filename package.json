@@ -1,0 +1,33 @@
+{
+  "name": "examedge-pro",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --experimental-require-module ./node_modules/@angular/cli/bin/ng.js serve",
+    "dev-all": "concurrently \"npm run dev\" \"npm run dev --prefix apps/youtube/frontend\" \"npm run dev --prefix apps/youtube/backend\" \"npm run dev --prefix apps/2.websiteBuilder/client\" \"npm run dev --prefix apps/2.websiteBuilder/server\"",
+    "build": "ng build",
+    "preview": "ng serve --configuration=production"
+  },
+  "dependencies": {
+    "@angular/build": "^21.1.0",
+    "@angular/cli": "^21.1.0",
+    "@angular/common": "^21.1.0",
+    "@angular/compiler": "^21.1.0",
+    "@angular/compiler-cli": "^21.1.0",
+    "@angular/core": "^21.1.0",
+    "@angular/forms": "^21.1.1",
+    "@angular/platform-browser": "^21.1.0",
+    "@angular/router": "^21.1.1",
+    "@google/genai": "^1.38.0",
+    "d3": "^7.9.0",
+    "rxjs": "^7.8.2",
+    "tailwindcss": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "concurrently": "^9.2.1",
+    "typescript": "5.9",
+    "vite": "^6.2.0"
+  }
+}
