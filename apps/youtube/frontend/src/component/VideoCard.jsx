@@ -11,13 +11,13 @@ const VideoCard = ({ thumbnail, duration, channelLogo, title, channelName, views
 
    
   return (
-    <div className="w-[360px] cursor-pointer" onClick={()=>navigate(`/watch-video/${id}`)}>
+    <div className="w-full sm:w-[360px] cursor-pointer" onClick={()=>navigate(`/watch-video/${id}`)}>
       {/* Thumbnail */}
-      <div className="relative">
+      <div className="relative w-full aspect-video">
         <img
           src={thumbnail}
           alt={title}
-          className="rounded-xl w-full h-[200px] border-1 border-gray-800 object-cover"
+          className="rounded-xl w-full h-full border-1 border-gray-800 object-cover"
         />
         <span className="absolute bottom-2 right-2 bg-black text-white text-xs px-1 rounded">
           {duration}

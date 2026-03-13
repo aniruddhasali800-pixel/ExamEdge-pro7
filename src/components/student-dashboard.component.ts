@@ -252,9 +252,9 @@ import { PaymentModalComponent } from './payment-modal.component';
                    class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                    [class.cursor-pointer]="!lecture.isPremium || isPro()">
                 
-                <div class="relative">
-                  <img [src]="lecture.thumbnailUrl" alt="Thumbnail" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300">
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div class="relative w-full aspect-video">
+                  <img [src]="lecture.thumbnailUrl" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
                   <span class="absolute bottom-2 left-2 bg-black/50 text-white text-xs font-bold px-2 py-1 rounded">{{ lecture.duration }}</span>
                   @if (lecture.isPremium) {
                     <span class="absolute top-2 right-2 bg-amber-400 text-black text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-md">
@@ -287,31 +287,32 @@ import { PaymentModalComponent } from './payment-modal.component';
       }
 
       <!-- NEW Permanent Footer Bar -->
-      <div class="fixed bottom-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-sm border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="fixed bottom-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-sm border-t border-slate-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
             <button (click)="toggleNotes()" class="flex items-center gap-2 text-slate-600 font-medium text-sm hover:text-blue-600 transition-colors">
-                <i class="fa-solid fa-pencil"></i>
+                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center sm:hidden"><i class="fa-solid fa-pencil"></i></div>
+                <i class="fa-solid fa-pencil hidden sm:inline"></i>
                 <span class="hidden sm:inline">Quick Notes</span>
             </button>
             @if (viewMode() === 'study') {
-              <div class="flex items-center gap-3">
-                <button (click)="viewMode.set('videos')" class="bg-blue-600 text-white font-bold px-4 py-2.5 rounded-full hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20 flex items-center gap-2 transform hover:scale-105">
+              <div class="flex items-center justify-end gap-2 sm:gap-3 flex-1 overflow-x-auto scrollbar-hide pl-4">
+                <button (click)="viewMode.set('videos')" class="flex-shrink-0 bg-blue-600 text-white font-bold w-10 h-10 sm:w-auto sm:px-4 sm:py-2.5 rounded-full hover:bg-blue-700 transition-colors shadow-sm shadow-blue-500/20 flex items-center justify-center gap-2 transform focus:scale-95">
                     <i class="fa-solid fa-clapperboard"></i>
-                    <span>Video Lectures</span>
+                    <span class="hidden sm:inline text-sm">Video Lectures</span>
                 </button>
-                <button (click)="openYouTube()" class="bg-red-600 text-white font-bold px-4 py-2.5 rounded-full hover:bg-red-700 transition-colors shadow-lg shadow-red-500/20 flex items-center gap-2 transform hover:scale-105">
+                <button (click)="openYouTube()" class="flex-shrink-0 bg-red-600 text-white font-bold w-10 h-10 sm:w-auto sm:px-4 sm:py-2.5 rounded-full hover:bg-red-700 transition-colors shadow-sm shadow-red-500/20 flex items-center justify-center gap-2 transform focus:scale-95">
                     <i class="fa-brands fa-youtube"></i>
-                    <span>YouTube</span>
+                    <span class="hidden sm:inline text-sm">YouTube</span>
                 </button>
-                <button (click)="openAIAppMaker()" class="bg-blue-600 text-white font-bold px-4 py-2.5 rounded-full hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20 flex items-center gap-2 transform hover:scale-105">
+                <button (click)="openAIAppMaker()" class="flex-shrink-0 bg-purple-600 text-white font-bold w-10 h-10 sm:w-auto sm:px-4 sm:py-2.5 rounded-full hover:bg-purple-700 transition-colors shadow-sm shadow-purple-500/20 flex items-center justify-center gap-2 transform focus:scale-95">
                     <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span>AI App Maker</span>
+                    <span class="hidden sm:inline text-sm">AI Maker</span>
                 </button>
               </div>
             } @else {
-               <button (click)="viewMode.set('study')" class="bg-slate-800 text-white font-bold px-4 py-2.5 rounded-full hover:bg-slate-700 transition-colors shadow-lg flex items-center gap-2 transform hover:scale-105">
+               <button (click)="viewMode.set('study')" class="bg-slate-800 text-white font-bold w-10 h-10 sm:w-auto sm:px-4 sm:py-2.5 rounded-full hover:bg-slate-700 transition-colors shadow-sm flex items-center justify-center gap-2 transform focus:scale-95">
                   <i class="fa-solid fa-book-open"></i>
-                  <span>Study Dashboard</span>
+                  <span class="hidden sm:inline text-sm">Study Dashboard</span>
               </button>
             }
         </div>
