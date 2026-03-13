@@ -181,7 +181,7 @@ function Home() {
                                 <div className='h-40 bg-black'>
                                     <iframe
                                         srcDoc={w.latestCode}
-                                        className='w-[140%] h-[140%] scale-[0.72] origin-top-left pointer-events-none bg-white'
+                                        className='w-[140%] h-[140%] max-w-none scale-[0.72] origin-top-left pointer-events-none bg-white'
                                     />
                                 </div>
                                 <div className='p-4'>

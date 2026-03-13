@@ -344,11 +344,11 @@ import { PaymentModalComponent } from './payment-modal.component';
        <!-- Video Player Modal -->
       @if (selectedVideo(); as video) {
         <div class="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm animate-fade-in" (click)="selectedVideo.set(null)">
-          <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full overflow-hidden animate-slide-up flex flex-col" (click)="$event.stopPropagation()">
-             <div class="bg-slate-900 aspect-video flex items-center justify-center text-white relative">
+          <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden animate-slide-up" (click)="$event.stopPropagation()">
+             <div class="bg-slate-900 aspect-video flex-shrink-0 flex items-center justify-center text-white relative">
                 <video controls [src]="video.videoUrl" class="w-full h-full bg-black" [poster]="video.thumbnailUrl"></video>
              </div>
-             <div class="p-6">
+             <div class="p-6 overflow-y-auto flex-grow">
                 <h2 class="text-2xl font-bold text-slate-900">{{ video.title }}</h2>
                 <p class="text-sm text-slate-500">by {{ video.instructor }} | Topic: {{ video.topic }} | City: {{ video.city }}</p>
                 <p class="text-sm text-slate-700 mt-3">{{ video.description }}</p>
